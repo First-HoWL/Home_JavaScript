@@ -1,0 +1,128 @@
+body{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size:cover;
+    background-image: url(https://kartinki.pics/uploads/posts/2021-04/1617573903_25-p-polnostyu-chernii-fon-30.jpg)
+}
+
+div#shopGenDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+div#shopGenDiv > div{
+    display: flex;
+    flex-direction: column;
+}
+
+div.foto{
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+div#colorBox{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#colorBox article{
+    height: 40px;
+    width: 30%;
+    border: 1px solid black;
+    margin: 1%;
+    display: flex;
+    align-items: center;
+}
+
+div#colorBox article div{
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+}
+div#colorBox article span{
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+
+input[type=text], input[type=password]{
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    border-color: brown;
+}
+
+input:focus{
+    background-color: lightgrey;
+}
+
+
+
+
+
+button{
+    padding: 15px;
+    border-radius: 10px;
+    border-color: brown;
+    background-color: brown;
+}
+button:hover{
+    border-color:rgb(199, 63, 14);
+    background-color:rgb(199, 63, 14);
+}
+
+button.buy{
+    padding: 15px;
+    border-radius: 10px;
+    border-color: green;
+    background-color: green;
+}
+
+button.buy:hover{
+    padding: 15px;
+    border-radius: 10px;
+    border-color: #005c00;
+    background-color: #005c00;
+}
+
+
+
+
+#max_div{
+    min-height: calc(100vh - 48px);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+}
+
+#max_div.theme-dark{
+    background-color: rgba(22, 22, 22, 0.9);
+    color:rgb(223, 220, 220);
+}
+
+div#DivThemeSwitch{
+    position: absolute; 
+    display: flex;
+     width: calc(60% - 30px); 
+     justify-content: flex-end;
+}
+
+
+
+select{
+    padding: 15px;
+    border-radius: 10px;
+    border-color: brown;
+}
