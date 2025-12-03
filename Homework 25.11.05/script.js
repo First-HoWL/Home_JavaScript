@@ -38,29 +38,6 @@ var basket = []
 
 
 
-
-
-
-
-
-
-function bubblesort(array){
-    let is_changed = true;
-    while (is_changed){
-        is_changed = false;
-        for (let i = 0; i < array.length - 1; i++){
-            if (array[i] > array[i + 1]){
-                let a = array[i];
-                array[i] = array[i + 1];
-                array[i + 1] = a;
-                is_changed = true;
-            }
-        }
-    }
-    return array;
-}
-
-
 function randint(a, b){
     return Math.floor(Math.random() * (b-a)) + a
 }
@@ -94,41 +71,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
 // Homework
 
 
-function Update(){
+function Update(updBatton){
     let shopGenDiv = document.querySelector("div#shopGenDiv")
     shopGenDiv.querySelectorAll("div").forEach((item)=>{
         item.remove()
     })
-    // basket.forEach((item) =>{
-    //     let shopGenDiv = document.querySelector("div#shopGenDiv")
-    //     let div = document.createElement("div")
-    //     let img = document.createElement("div")
-    //     let button = document.createElement("button")
-    //     img.style.backgroundImage = `url(${item.foto})`
-    //     img.classList.add("foto")
-    //     let name = document.createElement("span")
-    //     name.textContent = item.name
-    //     let price = document.createElement("span")
-    //     price.textContent = item.price + "$"
-    //     button.id = item.id
-    //     button.classList.add("buy") 
-    //     button.textContent = "Buy"
-    //     button.addEventListener("click", (event)=>{
-    //         let a = products.filter((item) => item.id == event.target.id)
-    //         console.log(event.target.id)
-    //         console.log(a)
-    //         a[0].bought = true
-    //         console.log(a)
-    //         Update()
-    //     })
-
-    //     div.append(img, name, price, button)
-        
-    //     shopGenDiv.append(div)
-
-            
-        
-    // })
     basket.forEach((item) =>{
         let shopGenDiv = document.querySelector("div#shopGenDiv")
         let div = document.createElement("div")
@@ -147,18 +94,28 @@ function Update(){
         button.textContent = "Delete"
         button.addEventListener("click", (event)=>{
             let a = products.filter((item) => item.id == event.target.id)[0]
-            console.log(event.target.id)
-            console.log(a)
-            //a[0].bought = false
+            let b = basket.filter((item) => item.id == event.target.id)[0]
+            console.log("id: " + event.target.id)
+            console.log("obj: " + a)
+            if(parseInt(b.quantity) <= 1){
+                let c = basket.indexOf(b)
+                basket.splice(c, 1)
+            }
+            else{
+                b.quantity -= 1
+            }
+            Update(false)
         })
 
         div.append(img, name, quantity, price, button)
         
         shopGenDiv.append(div)
-    
+        
     })
-    document.querySelector("button#basket").removeEventListener("click", () => Update())
-    document.querySelector("button#basket").addEventListener("click", () => onStart())
+    if(updBatton){
+        document.querySelector("button#basket").removeEventListener("click", () => Update(true))
+        document.querySelector("button#basket").addEventListener("click", () => onStart())  
+    }
 
 }
 
@@ -212,7 +169,7 @@ function onStart(){
         
     })
     document.querySelector("button#basket").removeEventListener("click", () => onStart())
-    document.querySelector("button#basket").addEventListener("click", () => Update())
+    document.querySelector("button#basket").addEventListener("click", () => Update(true))
 }
 
 
